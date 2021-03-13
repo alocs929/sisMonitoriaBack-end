@@ -1,9 +1,9 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
-import{ v4 as uuid } from 'uuid';
-@Entity("classeSchedule")
+import { v4 as uuid } from 'uuid';
+
+@Entity('classeSchedule')
 class ClassesSchedule {
-
   @PrimaryColumn()
   readonly id: string;
 
@@ -19,12 +19,11 @@ class ClassesSchedule {
   @Column()
   time_to: number;
 
-
-  constructor(){
-    if(!this.id){
-      this.id  = uuid();
+  constructor() {
+    if (!this.id) {
+      this.id = uuid();
     }
   }
 }
 
-export { ClassesSchedule };
+export default ClassesSchedule;

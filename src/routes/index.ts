@@ -1,12 +1,9 @@
 import { Router } from 'express';
-import { MonitorController } from '../controllers/Monitor';
+
+import monitorRouter from './monitor.routes';
 
 const routes = Router();
 
-const monitorController = new MonitorController();
-
-routes.post("/" , monitorController.create);
-
-
+routes.use('/monitor', monitorRouter);
 
 export default routes;

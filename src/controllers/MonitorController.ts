@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
 import { getCustomRepository } from 'typeorm';
 import { ClassesRepository } from '../repositories/ClassesRepository';
-import { ClassesScheduleRepository } from '../repositories/ClassesScheduleRepository';
+import '../repositories/ClassesScheduleRepository';
+import ClassesScheduleRepository from '../repositories/ClassesScheduleRepository';
 import { MonitorRepository } from '../repositories/MonitorRepository';
 
 class MonitorController {
@@ -31,7 +32,6 @@ class MonitorController {
     const test = {
       monitor , classes , class_shedule
     }
-
     return res.json(test);
   }
 }

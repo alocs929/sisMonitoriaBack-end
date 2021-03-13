@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export class CreateMonitor1615480642750 implements MigrationInterface {
 
@@ -34,8 +34,7 @@ export class CreateMonitor1615480642750 implements MigrationInterface {
 
     }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-      await queryRunner.dropTable("monitor");
-    }
-
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable("monitor");
+  }
 }
