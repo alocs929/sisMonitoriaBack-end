@@ -4,7 +4,7 @@
   "port": "",
   "username": "",
   "password": "",
-  "database": "",
+  "database": "moneytoria",
   "migrations": [
     "./dist/database/migrations/*.js"
   ],
