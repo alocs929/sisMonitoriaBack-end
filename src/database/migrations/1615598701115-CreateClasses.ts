@@ -13,7 +13,7 @@ export class CreateClasses1615598701115 implements MigrationInterface {
               isPrimary: true
             },
             {
-              name: "moneytoria_id",
+              name: "monitor_id",
               type: "uuid"
             },
             {
@@ -27,10 +27,10 @@ export class CreateClasses1615598701115 implements MigrationInterface {
           ],
           foreignKeys:[
             {
-              name: "FKMoneytoria",
-              referencedTableName: "moneytoria",
+              name: "FKMonitor",
+              referencedTableName: "monitor",
               referencedColumnNames: ["id"],
-              columnNames: ["moneytoria_id"],
+              columnNames: ["monitor_id"],
               onDelete: "CASCADE",
               onUpdate: "CASCADE"
             }

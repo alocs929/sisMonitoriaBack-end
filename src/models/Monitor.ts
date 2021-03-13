@@ -1,14 +1,14 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
 
 import{ v4 as uuid } from 'uuid';
-@Entity("moneytoria")
-class Moneytoria {
+@Entity("monitor")
+class Monitor {
 
   @PrimaryColumn()
   readonly id: string;
 
   @Column()
-  nome: string;
+  name: string;
 
   @Column()
   avatar: string;
@@ -26,4 +26,4 @@ class Moneytoria {
   }
 }
 
-export { Moneytoria };
+export { Monitor };

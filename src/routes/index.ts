@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { MoneytoriaController } from '../controllers/MoneytoriaController';
+import { MonitorController } from '../controllers/Monitor';
 
 const routes = Router();
 
-const moneytiriaController = new MoneytoriaController();
+const monitorController = new MonitorController();
 
-routes.post("/" , moneytiriaController.create);
+routes.post("/" , monitorController.create);
 
 
 
