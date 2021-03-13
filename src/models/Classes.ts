@@ -8,7 +8,7 @@ class Classes {
   readonly id: string;
 
   @Column()
-  moneytoria_id: string;
+  monitor_id: string;
 
   @Column()
   subject: string;

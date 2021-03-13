@@ -1,10 +1,10 @@
 import { Router, Response, Request } from 'express';
-// import MoneytoriaController from '../controllers/MoneytoriaController';
+import { MonitorController } from '../controllers/MonitorController';
 
 const monitorRouter = Router();
-// const moneytoriaController = new MoneytoriaController();
+ const monitorController = new MonitorController();
 
-// monitorRouter.post('/', moneytoriaController.create);
+monitorRouter.post('/', monitorController.create);
 monitorRouter.get('/', (request: Request, response: Response) => {
   return response.json({ ok: true });
 });
