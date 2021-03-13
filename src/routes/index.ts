@@ -1,12 +1,8 @@
 import { Router } from 'express';
-import { MoneytoriaController } from '../controllers/MoneytoriaController';
+import monitorRouter from './monitor.routes';
 
 const routes = Router();
 
-const moneytiriaController = new MoneytoriaController();
-
-routes.post("/" , moneytiriaController.create);
-
-
+routes.use('/monitor', monitorRouter);
 
 export default routes;

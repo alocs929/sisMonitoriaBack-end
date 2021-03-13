@@ -1,8 +1,5 @@
-import { EntityRepository, Repository } from "typeorm";
-import { ClassesSchedule } from "../models/ClassesSchedule";
+import { EntityRepository, Repository } from 'typeorm';
+import ClassesSchedule from '../models/ClassesSchedule';
 
 @EntityRepository(ClassesSchedule)
-class ClassesScheduleRepository extends Repository<ClassesSchedule> {
-
-}
-export { ClassesScheduleRepository }
+export default class ClassesScheduleRepository extends Repository<ClassesSchedule> { }
