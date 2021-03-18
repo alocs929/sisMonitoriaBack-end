@@ -1,9 +1,9 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
-import{ v4 as uuid } from 'uuid';
-@Entity("monitor")
+import { v4 as uuid } from 'uuid';
+
+@Entity('monitor')
 class Monitor {
-
   @PrimaryColumn()
   readonly id: string;
 
@@ -19,11 +19,11 @@ class Monitor {
   @Column()
   bio: string;
 
-  constructor(){
-    if(!this.id){
-      this.id  = uuid();
+  constructor() {
+    if (!this.id) {
+      this.id = uuid();
     }
   }
 }
 
-export { Monitor };
+export default Monitor;

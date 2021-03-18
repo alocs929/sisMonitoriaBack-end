@@ -1,9 +1,9 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
-import{ v4 as uuid } from 'uuid';
-@Entity("classes")
+import { v4 as uuid } from 'uuid';
+
+@Entity('classes')
 class Classes {
-
   @PrimaryColumn()
   readonly id: string;
 
@@ -16,11 +16,11 @@ class Classes {
   @Column()
   cost: string;
 
-  constructor(){
-    if(!this.id){
-      this.id  = uuid();
+  constructor() {
+    if (!this.id) {
+      this.id = uuid();
     }
   }
 }
 
-export { Classes };
+export default Classes;
