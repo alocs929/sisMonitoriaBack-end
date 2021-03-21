@@ -1,12 +1,13 @@
 {
-  "type": "sqlite",
-  "database": "./src/database/database.sqlite",
-  "migrations": ["./src/database/migrations/**.ts"],
-  "entities": ["./src/models/**.ts"],
+  "type": "postgres",
+  "host": "localhost",
+  "port": "5432",
+  "username": "postgres",
+  "password": "",
+  "database": "moneytoria",
+  "entities": ["./src/models/**/*.ts"],
+  "migrations": ["./src/database/migrations/*.ts"],
   "cli": {
-    "migrationsDir": "./src/database/migrations"
+    "migrationsDir": "./src/database/migrations/"
   }
-
-
-
 }
