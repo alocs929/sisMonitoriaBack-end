@@ -21,12 +21,12 @@ class MonitorController {
     } = req.body;
     console.log(req.body);
     res.json({status: 'OK'});
-    
+
 
     const monitorRepository = getCustomRepository(MonitorRepository);
     const classesRepository = getCustomRepository(ClassesRepository);
     const classesScheduleRepository = getCustomRepository(
-      ClassesScheduleRepository,
+      ClassesScheduleRepository
     );
 
     const monitor = monitorRepository.create({
@@ -36,7 +36,6 @@ class MonitorController {
       bio,
     });
     const monitor_id = monitor.id;
-
     const classes = classesRepository.create({
       monitor_id,
       subject,
@@ -52,12 +51,7 @@ class MonitorController {
     await monitorRepository.save(monitor);
     await classesRepository.save(classes);
     await classesScheduleRepository.save(class_shedule);
-    const test = {
-      monitor,
-      classes,
-      class_shedule,
-    };
-    return res.json(test);
+
   }
 }
 export default MonitorController;
