@@ -4,7 +4,6 @@ import ClassesRepository from '../repositories/ClassesRepository';
 import ClassesScheduleRepository from '../repositories/ClassesScheduleRepository';
 
 import MonitorRepository from '../repositories/MonitorRepository';
-import { request } from 'https';
 
 class MonitorController {
   async create(req: Request, res: Response): Promise<any> {
@@ -19,9 +18,8 @@ class MonitorController {
       time_from,
       time_to,
     } = req.body;
-    console.log(req.body);
-    res.json({status: 'OK'});
-    
+    // console.log(req.body);
+    res.json({ status: 'OK' });
 
     const monitorRepository = getCustomRepository(MonitorRepository);
     const classesRepository = getCustomRepository(ClassesRepository);
