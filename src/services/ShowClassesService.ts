@@ -15,10 +15,10 @@
   time_from
   time_to
 }
-*/
+
 
 import { getCustomRepository } from 'typeorm';
-import ClassesScheduleRepository from '../repositories/ClassesScheduleRepository';
+///import ClassesScheduleRepository from '../repositories/ClassesScheduleRepository';
 
 interface GenericClasse {
   classe: {
@@ -38,14 +38,16 @@ interface GenericClasse {
 export default class ShowClassesService {
   async execute(): Promise<GenericClasse[]> {
     const classesScheduleRepository = getCustomRepository(
-      ClassesScheduleRepository,
+      //ClassesScheduleRepository,
     );
 
-    const find = await classesScheduleRepository.find();
+    //const find = await classesScheduleRepository.find();
     console.log(find);
 
     //    const buttons = await buttonsRepository.find({ relations: ['user'] });
 
     return [];
+
   }
 }
+*/
