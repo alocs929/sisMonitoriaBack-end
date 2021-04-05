@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export default class createConnections1617420264039
+export default class createConnections1617655209622
   implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
@@ -15,7 +15,6 @@ export default class createConnections1617420264039
           {
             name: 'counter',
             type: 'integer',
-            default: 0,
           },
         ],
       }),
