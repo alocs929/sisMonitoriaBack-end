@@ -34,7 +34,6 @@ class MonitorController {
       bio,
     });
     const monitor_id = monitor.id;
-
     const classes = classesRepository.create({
       monitor_id,
       subject,
@@ -50,12 +49,6 @@ class MonitorController {
     await monitorRepository.save(monitor);
     await classesRepository.save(classes);
     await classesScheduleRepository.save(class_shedule);
-    const test = {
-      monitor,
-      classes,
-      class_shedule,
-    };
-    return res.json(test);
   }
 }
 export default MonitorController;
