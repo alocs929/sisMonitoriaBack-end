@@ -1,10 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export default class CreateMonitor1615480642750 implements MigrationInterface {
+export default class createClasses1617654264668 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'monitor',
+        name: 'classes',
         columns: [
           {
             name: 'id',
@@ -27,12 +27,32 @@ export default class CreateMonitor1615480642750 implements MigrationInterface {
             name: 'bio',
             type: 'varchar',
           },
+          {
+            name: 'subject',
+            type: 'varchar',
+          },
+          {
+            name: 'cost',
+            type: 'varchar',
+          },
+          {
+            name: 'weekday',
+            type: 'integer',
+          },
+          {
+            name: 'time_from',
+            type: 'integer',
+          },
+          {
+            name: 'time_to',
+            type: 'integer',
+          },
         ],
       }),
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('monitor');
+    await queryRunner.dropTable('classes');
   }
 }

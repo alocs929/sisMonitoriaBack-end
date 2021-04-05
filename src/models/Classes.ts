@@ -8,13 +8,31 @@ class Classes {
   readonly id: string;
 
   @Column()
-  monitor_id: string;
+  name: string;
+
+  @Column()
+  avatar: string;
+
+  @Column()
+  whatsapp: string;
+
+  @Column()
+  bio: string;
 
   @Column()
   subject: string;
 
   @Column()
   cost: string;
+
+  @Column()
+  weekday: number;
+
+  @Column()
+  time_from: number;
+
+  @Column()
+  time_to: number;
 
   constructor() {
     if (!this.id) {
