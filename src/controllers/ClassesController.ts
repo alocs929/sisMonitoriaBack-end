@@ -1,11 +1,7 @@
 import { Request, Response } from 'express';
 import { getCustomRepository } from 'typeorm';
-import ClassesRepository from '../repositories/ClassesRepository';
-import ClassesScheduleRepository from '../repositories/ClassesScheduleRepository';
-
-import MonitorRepository from '../repositories/MonitorRepository';
+import ClassesRepository from '../repositories/classesRepository';
 import ShowClassesService from '../services/ShowClassesService';
-
 import convertHourToMinutes from '../utils/convertHourToMinutes';
 
 class ClassesController {
@@ -21,41 +17,25 @@ class ClassesController {
       time_from,
       time_to,
     } = req.body;
-    // console.log(req.body);
     res.json({ status: 'OK' });
-
-    const monitorRepository = getCustomRepository(MonitorRepository);
     const classesRepository = getCustomRepository(ClassesRepository);
-    const classesScheduleRepository = getCustomRepository(
-      ClassesScheduleRepository,
-    );
-
-    const monitor = monitorRepository.create({
+    const classes = classesRepository.create({
       name,
       avatar,
       whatsapp,
       bio,
-    });
-    const monitor_id = monitor.id;
-    const classes = classesRepository.create({
-      monitor_id,
       subject,
       cost,
-    });
-    const classe_id = classes.id;
-    const class_shedule = classesScheduleRepository.create({
-      classe_id,
       weekday,
       time_from,
       time_to,
     });
-    await monitorRepository.save(monitor);
     await classesRepository.save(classes);
-    await classesScheduleRepository.save(class_shedule);
   }
 
   async index(request: Request, response: Response): Promise<any> {
     const showClassesService = new ShowClassesService();
+    /*
     const filters = request.query;
     const subject = filters.subject as string;
     const weekday = filters.week_day as string;
@@ -71,8 +51,7 @@ class ClassesController {
 
     // console.log(search);
 
-    /*
-    const timeInMinutes = convertHourToMinutes(time);
+        const timeInMinutes = convertHourToMinutes(time);
     const classes = await db('classes')
       .whereExists(function () {
         this.select('class_schedule.*')
