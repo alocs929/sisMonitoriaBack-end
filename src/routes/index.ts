@@ -1,11 +1,11 @@
 import { Router } from 'express';
 
-import monitorRouter from './monitor.routes';
-import userRouter from './user.routes';
+import monitorRouter from './classes.routes';
+import userRouter from './connections.routes';
 
 const routes = Router();
 
-routes.use('/monitor', monitorRouter);
-routes.use('/user', userRouter);
+routes.use('/classes', monitorRouter); // post //get
+routes.use('/connections', userRouter); // post //get
 
 export default routes;
