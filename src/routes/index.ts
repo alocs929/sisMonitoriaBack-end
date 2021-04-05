@@ -7,5 +7,4 @@ const routes = Router();
 
 routes.use('/classes', monitorRouter); // post //get
 routes.use('/connections', userRouter); // post //get
-
 export default routes;

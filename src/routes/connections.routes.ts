@@ -6,6 +6,7 @@ const connectionsController = new ConnectionsController();
 
 const userRouter = Router();
 // const moneytoriaController = new MoneytoriaController();
-// userRouter.get('/', connectionsController.search);
+userRouter.get('/', connectionsController.index);
+userRouter.post('/', connectionsController.create);
 
 export default userRouter;
