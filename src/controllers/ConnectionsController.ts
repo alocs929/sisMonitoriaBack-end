@@ -10,7 +10,7 @@ class ConnectionsController {
     res.json(total);
   }
 
-  async create(req: Request, res: Response) {
+  async create(req: Request, res: Response): Promise<any> {
     const connectionsRepository = getCustomRepository(ConnectionsRepository);
     const connection = await connectionsRepository.find();
     if (!connection.length) {
