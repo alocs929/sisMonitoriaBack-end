@@ -5,31 +5,26 @@ import ClassesRepository from '../repositories/ClassesRepository';
 
 class ClassesController {
   async create(req: Request, res: Response): Promise<any> {
-    const {
-      name,
-      avatar,
-      whatsapp,
-      bio,
-      subject,
-      cost,
-      weekday,
-      time_from,
-      time_to,
-    } = req.body;
+    const { name, avatar, whatsapp, bio, subject, cost, schedule } = req.body;
     res.json({ status: 'OK' });
     const classesRepository = getCustomRepository(ClassesRepository);
-    const classes = classesRepository.create({
-      name,
-      avatar,
-      whatsapp,
-      bio,
-      subject,
-      cost,
-      weekday,
-      time_from,
-      time_to,
-    });
-    await classesRepository.save(classes);
+
+    schedule.map(
+      async (item: { week_day: number; from: string; to: string }) => {
+        const classes = classesRepository.create({
+          name,
+          avatar,
+          whatsapp,
+          bio,
+          subject,
+          cost,
+          weekday: item.week_day,
+          time_from: Number(item.from.slice(0, 2)),
+          time_to: Number(item.to.slice(0, 2)),
+        });
+        await classesRepository.save(classes);
+      },
+    );
   }
 
   async index(request: Request, response: Response): Promise<any> {
@@ -54,7 +49,7 @@ class ClassesController {
     );
 
     const listFilterTime = listFilterSubject.filter(
-      item => item.time_from >= Number(filters.time),
+      item => item.time_from >= Number(filters.time?.slice(0, 2)),
     );
 
     if (!listFilterTime.length) {

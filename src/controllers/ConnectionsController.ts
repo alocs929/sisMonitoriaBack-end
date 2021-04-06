@@ -6,7 +6,15 @@ class ConnectionsController {
   async index(req: Request, res: Response): Promise<any> {
     const connectionsRepository = getCustomRepository(ConnectionsRepository);
     const connection = await connectionsRepository.find();
-    const total = connection[0].counter;
+    if (!connection.length) {
+      const cone = connectionsRepository.create({
+        id: 1,
+        counter: 0,
+      });
+      await connectionsRepository.save(cone);
+    }
+    const connection1 = await connectionsRepository.find();
+    const total = connection1[0].counter;
     res.json(total);
   }
 
