@@ -9,7 +9,7 @@ export default class createConnections1617655209622
         columns: [
           {
             name: 'id',
-            type: 'uuid',
+            type: 'integer',
             isPrimary: true,
           },
           {

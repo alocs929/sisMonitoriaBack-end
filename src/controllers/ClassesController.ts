@@ -34,7 +34,7 @@ class ClassesController {
   }
 
   async index(request: Request, response: Response): Promise<any> {
-    const showClassesService = new ShowClassesService();
+    //const showClassesService = new ShowClassesService();
     /*
     const filters = request.query;
     const subject = filters.subject as string;
